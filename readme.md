@@ -2,7 +2,7 @@
 2. Declare validCount, smallCount, mediumCount and largeCount as int, and amount, validTotal, smallTotal, mediumTotal, largeTotal and average as float.
 3. Set all counts and totals to 0.
 4. Repeat using a do-while loop:
-a. Read the expense amount.
+a. Read the expense amounts
 
 b. If amount < 0, display an error message and ignore the amount.
 
