@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main() {
+    int validCount = 0, smallCount = 0, mediumCount = 0, largeCount = 0;
+    float amount, average;
+    float validTotal = 0, smallTotal = 0, mediumTotal = 0, largeTotal = 0;
+
+    do {
+        printf("Enter expense amount (0 to stop): ");
+        scanf("%f", &amount);
+
+        if (amount < 0) {
+            printf("Invalid expense! Negative amounts are not allowed.\n");
+        } else if (amount > 0) {
+            if (amount < 100) {
+                smallCount++;
+                smallTotal += amount;
+            } else if (amount < 500) {
+                mediumCount++;
+                mediumTotal += amount;
+            } else {
+                largeCount++;
+                largeTotal += amount;
+            }
+            validCount++;
+            validTotal += amount;
+        }
+    } while (amount != 0);
+
+    printf("\n----- Expense Summary -----\n");
+
+    if (validCount == 0) {
+        printf("No valid expenses were entered.\n");
+    } else {
+        average = validTotal / validCount;
+        printf("Valid expenses   : %d\n", validCount);
+        printf("Total expenses   : Rs %.2f\n", validTotal);
+        printf("Small  (< 100)   : %d, Rs %.2f\n", smallCount, smallTotal);
+        printf("Medium (100-499) : %d, Rs %.2f\n", mediumCount, mediumTotal);
+        printf("Large  (>= 500)  : %d, Rs %.2f\n", largeCount, largeTotal);
+        printf("Average expense  : Rs %.2f\n", average);
+    }
+
+    return 0;
+}
